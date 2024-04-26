@@ -1,6 +1,6 @@
-package com.natural.repository;
+package com.natural.repository.customer;
 
-import com.natural.entity.CustomerEntity;
+import com.natural.entity.customer.CustomerEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

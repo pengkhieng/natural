@@ -1,8 +1,8 @@
 package com.natural.service.serviceImpl;
 
 
-import com.natural.entity.CustomerEntity;
-import com.natural.repository.CustomerRepository;
+import com.natural.entity.customer.CustomerEntity;
+import com.natural.repository.customer.CustomerRepository;
 import com.natural.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     public CustomerServiceImpl(CustomerRepository customerRepository) {
+
         this.customerRepository = customerRepository;
     }
 
@@ -37,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomerById(String customerId) {
+
         customerRepository.deleteById(customerId);
     }
 }

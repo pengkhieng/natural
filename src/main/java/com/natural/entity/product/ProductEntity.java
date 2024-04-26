@@ -1,30 +1,30 @@
-package com.natural.entity;
+package com.natural.entity.product;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.UUID;
 
+
 @Entity
-public class CustomerEntity {
+public class ProductEntity {
+
     @Id
     private String id;
     private String name;
-    private String email;
+    private String description;
 
-    public CustomerEntity() {
-        // Default constructor required by JPA
+    // Constructors, getters, and setters
+    public ProductEntity() {
+        // Default constructor
     }
 
-    public CustomerEntity(String name, String email) {
+    public ProductEntity(String name, String description) {
         this.name = name;
-        this.email = email;
+        this.description = description;
         this.id = generateId();
     }
+
 
     private String generateId() {
         return UUID.randomUUID().toString().replace("-", "");
@@ -32,7 +32,7 @@ public class CustomerEntity {
 
 
 
-
+    // Getters and setters
     public String getId() {
         return id;
     }
@@ -49,11 +49,11 @@ public class CustomerEntity {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
