@@ -1,6 +1,7 @@
 package com.natural.service;
 
 import com.natural.entity.product.ProductEntity;
+import com.natural.entity.product.ProductRequestEntity;
 import com.natural.repository.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,14 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProductById(String id) {
 
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public ProductEntity updateProduct(String id, ProductRequestEntity updatedProduct) {
+        ProductEntity existingProduct = getProductById(id);
+        existingProduct.setName(updatedProduct.getName());
+        existingProduct.setDescription(updatedProduct.getDescription());
+        return productRepository.save(existingProduct);
     }
 
 

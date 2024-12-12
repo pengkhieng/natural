@@ -50,4 +50,9 @@ public class Product {
             return new ResponseEntity<>("Customer deleted successfully", HttpStatus.OK);
         }
     }
+    @PatchMapping("/{id}")
+    public ResponseEntity<ProductEntity> updateProduct(@PathVariable String id, @RequestBody ProductRequestEntity updatedProduct) {
+        return ResponseEntity.ok(productService.updateProduct(id, updatedProduct));
+    }
+
 }
